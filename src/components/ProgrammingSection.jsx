@@ -11,7 +11,7 @@ const ratingHistory = {
   leetcode: [{rating: 1548}, {rating: 1652}, {rating: 1677}, {rating: 1742}, 
                {rating: 1703}, {rating: 1749}, {rating: 1791}, {rating: 1784}, 
                {rating: 1795}, {rating: 1784}, {rating: 1820}, {rating: 1794}, 
-               {rating: 1791}, {rating: 1812}, {rating: 1859}
+               {rating: 1791}, {rating: 1812}, {rating: 1859}, {rating: 1905}
             ],
   codechef: [{rating: 957}, {rating: 1180}, {rating: 1341}, {rating: 1410}, 
                {rating: 1392}, {rating: 1395}, {rating: 1446}, {rating: 1430}, 

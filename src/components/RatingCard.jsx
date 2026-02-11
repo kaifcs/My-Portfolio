@@ -1,7 +1,7 @@
 // src/components/RatingCard.jsx
 "use client";
 import React from "react";
-import { ResponsiveContainer, AreaChart, Area, YAxis, Tooltip } from "recharts";
+import { ResponsiveContainer, AreaChart, Area, YAxis, XAxis, Tooltip } from "recharts";
 import Link from "next/link";
 
 const normalizeData = (data) => {
@@ -11,7 +11,7 @@ const normalizeData = (data) => {
   return data.map((d, i) => ({
     rating: Number(d.rating) || 0,
     normalized: (Number(d.rating) || 0) - min + 20,
-    index: i,
+    index: i+1,
   }));
 };
 
@@ -60,6 +60,7 @@ const RatingCard = ({
         <div className="h-24 w-full opacity-90">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={chartData}>
+              <XAxis dataKey="index" hide domain={[1, "dataMax"]} />
               <YAxis hide domain={["dataMin - 10", "dataMax + 10"]} />
               <Tooltip
                 formatter={(value, name, props) => {
