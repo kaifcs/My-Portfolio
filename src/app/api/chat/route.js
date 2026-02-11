@@ -1,18 +1,13 @@
 import Groq from "groq-sdk";
 import { NextResponse } from "next/server";
 
-/* ================= GROQ CLIENT ================= */
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-});
-
 /* ================= RATE LIMIT (in-memory) ================= */
 const requests = new Map();
 
 function rateLimit(ip) {
   const now = Date.now();
-  const windowTime = 60 * 1000; // 1 minute window
-  const limit = 10; // max 10 requests per minute
+  const windowTime = 60 * 1000; // 1 minute
+  const limit = 10;
 
   if (!requests.has(ip)) {
     requests.set(ip, []);
@@ -31,7 +26,8 @@ function rateLimit(ip) {
 export async function POST(req) {
   try {
     /* ---------- Rate limit ---------- */
-    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
 
     if (!rateLimit(ip)) {
       return NextResponse.json(
@@ -49,7 +45,7 @@ export async function POST(req) {
 
     const cleanMessage = message.trim();
 
-    if (cleanMessage.length === 0) {
+    if (!cleanMessage) {
       return NextResponse.json({ error: "Empty message" }, { status: 400 });
     }
 
@@ -60,9 +56,14 @@ export async function POST(req) {
       );
     }
 
+    /* ---------- Init Groq at runtime (CRITICAL FIX) ---------- */
+    const groq = new Groq({
+      apiKey: process.env.GROQ_API_KEY,
+    });
+
     /* ---------- Groq completion ---------- */
     const completion = await groq.chat.completions.create({
-      model: "llama-3.1-8b-instant", // stable free model
+      model: "llama-3.1-8b-instant",
       temperature: 0.5,
       max_tokens: 200,
       messages: [
@@ -80,7 +81,7 @@ RULES:
 - Reply in 2–3 concise sentences
 - Be professional, friendly, and recruiter-focused
 - Encourage exploring projects or contacting Kaif
-- If question is unrelated to Kaif → politely say you don’t know
+- If unrelated → politely say you don’t know
 `,
         },
         {
@@ -114,6 +115,7 @@ export async function GET() {
     timestamp: new Date().toISOString(),
   });
 }
+
 
 
 // import Groq from "groq-sdk";
