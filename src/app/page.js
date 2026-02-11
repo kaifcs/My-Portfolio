@@ -9,6 +9,7 @@ import ProjectSection from "@/components/ProjectSection";
 import EmailSection from "@/components/EmailSection";
 import Footer from "@/components/Footer";
 import Skills from "@/components/Skills";
+import AiChatbotSection from "@/components/AiChatbotSection";
 
 export default function Home() {
   return (
@@ -49,6 +50,10 @@ export default function Home() {
         <EmailSection />
       </section>
 
+      {/* AI CHATBOT */}
+      <section id="ai-chatbot" className="py-20">
+        <AiChatbotSection />
+      </section>
       {/* FOOTER */}
       <Footer />
     </main>

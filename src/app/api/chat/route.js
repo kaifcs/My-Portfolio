@@ -1,68 +1,169 @@
 import Groq from "groq-sdk";
-import fs from "fs/promises";
-import path from "path";
+import { NextResponse } from "next/server";
 
+/* ================= GROQ CLIENT ================= */
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
+/* ================= RATE LIMIT (in-memory) ================= */
+const requests = new Map();
+
+function rateLimit(ip) {
+  const now = Date.now();
+  const windowTime = 60 * 1000; // 1 minute window
+  const limit = 10; // max 10 requests per minute
+
+  if (!requests.has(ip)) {
+    requests.set(ip, []);
+  }
+
+  const timestamps = requests.get(ip).filter((t) => now - t < windowTime);
+
+  if (timestamps.length >= limit) return false;
+
+  timestamps.push(now);
+  requests.set(ip, timestamps);
+  return true;
+}
+
+/* ================= POST: CHAT ================= */
 export async function POST(req) {
   try {
-    // 1️⃣ Parse request body
+    /* ---------- Rate limit ---------- */
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
+
+    if (!rateLimit(ip)) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again later." },
+        { status: 429 }
+      );
+    }
+
+    /* ---------- Parse body ---------- */
     const { message } = await req.json();
 
-    // 2️⃣ Validate input
     if (!message || typeof message !== "string") {
-      return new Response(
-        JSON.stringify({ error: "Message is required." }),
+      return NextResponse.json({ error: "Invalid message" }, { status: 400 });
+    }
+
+    const cleanMessage = message.trim();
+
+    if (cleanMessage.length === 0) {
+      return NextResponse.json({ error: "Empty message" }, { status: 400 });
+    }
+
+    if (cleanMessage.length > 500) {
+      return NextResponse.json(
+        { error: "Message too long (max 500 characters)" },
         { status: 400 }
       );
     }
 
-    // 3️⃣ Read resume content safely (async)
-    const resumePath = path.join(process.cwd(), "src", "data", "resume.md");
-    const resumeText = await fs.readFile(resumePath, "utf-8");
-
-    // 4️⃣ Create Groq chat completion
+    /* ---------- Groq completion ---------- */
     const completion = await groq.chat.completions.create({
-      model: "llama-3.1-8b-instant",
-      temperature: 0.2,
+      model: "llama-3.1-8b-instant", // stable free model
+      temperature: 0.5,
+      max_tokens: 200,
       messages: [
         {
           role: "system",
           content: `
-You are Kaif Khan's portfolio assistant.
+You are an AI assistant for Kaif Khan’s developer portfolio.
 
-Rules:
-- Answer ONLY using the resume content below.
-- If the answer is not present in the resume but is related to Kaif's profile, answer professionally.
-- Otherwise reply: "Sorry, I do not have information about that."
-- Keep responses concise, friendly, and professional.
+ABOUT KAIF:
+- Full-stack developer skilled in React, Next.js, Node.js, MongoDB
+- Strong in Data Structures & Algorithms and competitive programming
+- Builds AI-integrated, production-ready web applications
 
-Resume:
-${resumeText}
-          `,
+RULES:
+- Reply in 2–3 concise sentences
+- Be professional, friendly, and recruiter-focused
+- Encourage exploring projects or contacting Kaif
+- If question is unrelated to Kaif → politely say you don’t know
+`,
         },
         {
           role: "user",
-          content: message,
+          content: cleanMessage,
         },
       ],
     });
 
-    // 5️⃣ Safe reply extraction
+    /* ---------- Safe reply extraction ---------- */
     const reply =
-      completion?.choices?.[0]?.message?.content ||
-      "Sorry, I couldn't generate a response.";
+      completion?.choices?.[0]?.message?.content?.trim() ||
+      "Sorry, I couldn't generate a response right now.";
 
-    // 6️⃣ Return response
-    return new Response(JSON.stringify({ reply }), { status: 200 });
+    return NextResponse.json({ reply });
   } catch (error) {
-    console.error("Chat API error:", error);
+    console.error("❌ Chat API error:", error);
 
-    return new Response(
-      JSON.stringify({ error: "Failed to generate response." }),
+    return NextResponse.json(
+      { error: "AI service unavailable. Please try again later." },
       { status: 500 }
     );
   }
 }
+
+/* ================= GET: HEALTH CHECK ================= */
+export async function GET() {
+  return NextResponse.json({
+    status: "ok",
+    message: "Chat API is running",
+    timestamp: new Date().toISOString(),
+  });
+}
+
+
+// import Groq from "groq-sdk";
+// import { NextResponse } from "next/server";
+
+// const groq = new Groq({
+//   apiKey: process.env.GROQ_API_KEY,
+// });
+
+// export async function POST(req) {
+//   try {
+//     const { message } = await req.json();
+
+//     if (!message) {
+//       return NextResponse.json({ error: "Message required" }, { status: 400 });
+//     }
+
+//     const completion = await groq.chat.completions.create({
+//       model: "llama-3.1-8b-instant", // ✅ working free model
+//       temperature: 0.5,
+//       max_tokens: 200,
+//       messages: [
+//         {
+//           role: "system",
+//           content: `
+// You are an AI assistant for Kaif Khan's developer portfolio.
+
+// Rules:
+// - Be concise (2-3 sentences max)
+// - Highlight Kaif’s skills in React, Next.js, Node.js, DSA, and AI
+// - Encourage recruiters to view projects or contact section
+// - If question unrelated to portfolio → say politely you don’t know
+//           `,
+//         },
+//         {
+//           role: "user",
+//           content: message,
+//         },
+//       ],
+//     });
+
+//     return NextResponse.json({
+//       reply: completion.choices[0].message.content,
+//     });
+//   } catch (error) {
+//     console.error("Chat API error:", error);
+
+//     return NextResponse.json(
+//       { error: "AI service unavailable" },
+//       { status: 500 }
+//     );
+//   }
+// }
