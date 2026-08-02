@@ -1,10 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true, // catches bugs in development
-  reactCompiler: true,   // React compiler optimization
+  reactStrictMode: true,
+  reactCompiler: true,
 
   images: {
-    domains: ["upload.wikimedia.org", "sta.codeforces.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+      },
+      {
+        protocol: "https",
+        hostname: "sta.codeforces.com",
+      },
+      {
+        protocol: "https",
+        hostname: "github.com",
+      },
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+      },
+    ],
   },
 
   experimental: {

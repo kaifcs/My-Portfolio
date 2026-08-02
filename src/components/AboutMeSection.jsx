@@ -127,7 +127,7 @@ const AboutMeSection = () => {
               </div>
 
               <p className="text-zinc-300 leading-relaxed mb-4">
-                I'm a{" "}
+                I&apos;m a{" "}
                 <span className="text-emerald-400 font-semibold">
                   Computer Science and Engineering student
                 </span>{" "}

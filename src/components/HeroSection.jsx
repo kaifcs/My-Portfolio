@@ -163,7 +163,7 @@ const HeroSection = () => {
           <div className="relative w-full h-full rounded-3xl overflow-hidden border-4 border-transparent bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 p-[3px]">
             <div className="w-full h-full rounded-3xl overflow-hidden bg-zinc-950">
               <Image
-                src="/my_formals_photo.jpeg"
+                src="/my_formals_photo.jpg"
                 alt="Kaif Khan - Software Engineer"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"

@@ -5,23 +5,23 @@ import Image from "next/image";
 import { HiDownload } from "react-icons/hi";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
+const navLinks = [
+  { name: "About", path: "#about" },
+  { name: "Skills", path: "#skills" },
+  { name: "Problem Solving", path: "#problem-solving" },
+  { name: "Recognition", path: "#recognition" },
+  { name: "Projects", path: "#projects" },
+  { name: "Contact", path: "#contact" },
+];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [indicatorStyle, setIndicatorStyle] = useState({});
-  
+
   const navRef = useRef(null);
   const linkRefs = useRef({});
-
-  const navLinks = [
-    { name: "About", path: "#about" },
-    { name: "Skills", path: "#skills" },
-    { name: "Problem Solving", path: "#problem-solving" },
-    { name: "Recognition", path: "#recognition" },
-    { name: "Projects", path: "#projects" },
-    { name: "Contact", path: "#contact" },
-  ];
 
   // Handle scroll effect for navbar background
   useEffect(() => {

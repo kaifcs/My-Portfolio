@@ -14,7 +14,7 @@ const EmailSection = () => {
         {/* Header */}
         <div className="text-center mb-10">
           <h2 className="text-5xl sm:text-6xl font-bold mb-6">
-            Let's{" "}
+            Let&apos;s{" "}
             <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Connect
             </span>
@@ -39,7 +39,7 @@ const EmailSection = () => {
               
               <div className="space-y-4">
                 {/* Email Card */}
-                <Link href="mailto:kaif.khan.28.05.2005@gmail.com" className="group block">
+                <Link href="mailto:kk.kaifkhan05@gmail.com" className="group block">
                   <div className="flex items-center gap-5 p-5 bg-zinc-900/40 backdrop-blur-md border border-white/5 rounded-2xl hover:border-emerald-500/30 transition-all duration-500">
                     <div className="w-14 h-14 rounded-xl bg-emerald-400/10 text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                       <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -51,7 +51,7 @@ const EmailSection = () => {
                         System.Mail
                       </p>
                       <p className="text-white font-bold truncate group-hover:text-emerald-400 transition-colors">
-                        kaif.khan.28.05.2005@gmail.com
+                        kk.kaifkhan05@gmail.com
                       </p>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-zinc-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -179,7 +179,7 @@ const EmailSection = () => {
                     Message Sent Successfully!
                   </p>
                   <p className="text-gray-400 text-sm">
-                    Thanks for reaching out. I'll get back to you soon.
+                    Thanks for reaching out. I&apos;ll get back to you soon.
                   </p>
                 </div>
               ) : (

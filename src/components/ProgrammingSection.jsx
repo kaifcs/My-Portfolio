@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import RatingCard from "./RatingCard";
@@ -43,8 +44,9 @@ const ProgrammingSection = () => {
         if (!res.ok) throw new Error("Failed to fetch stats");
         const data = await res.json();
         if (active) setStats(data);
-      } catch (error) {
-        console.error("Error fetching stats:", error);
+      } catch {
+        // Network or API error — stats stay null; loading is cleared below
+        // and the UI falls back to the "failed to load" state.
       } finally {
         if (active) setLoading(false);
       }
@@ -590,11 +592,16 @@ const CodingProfileCard = ({ name, logo, link, accentColor, borderColor, hoverGl
       <div className="relative z-10 flex flex-col items-center gap-4 text-center">
         {/* Logo Container */}
         <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-zinc-900/50 backdrop-blur-sm p-3 lg:p-4 flex items-center justify-center border border-zinc-700/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg">
-          <img 
-            src={logo} 
-            alt={`${name} logo`} 
-            className="w-full h-full object-contain"
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={logo}
+              alt={`${name} logo`}
+              fill
+              unoptimized
+              sizes="(min-width: 1024px) 80px, 64px"
+              className="object-contain"
+            />
+          </div>
         </div>
 
         {/* Platform Name */}

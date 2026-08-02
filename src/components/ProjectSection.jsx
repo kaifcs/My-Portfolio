@@ -113,17 +113,73 @@ const ProjectCard = ({ project, index }) => {
 
 const ProjectSection = () => {
   const projectsData = [
-    {
-      id: 1,
-      title: "MERN To-Do List Application",
-      description: "A Full-Stack Task Management application built using the MERN stack with Express.js backend, MongoDB database, and a modern glassmorphism UI. Features include persistent CRUD operations, animated progress tracking, and responsive design.",
-      image: "/React_Task_Management_App_v2.png",
-      github: "https://github.com/kaifcs/MERN-Project-TO_DO_List",
-      demo: null,
-      tech: ["MongoDB", "Express.js", "React", "Node.js", "REST API", "Glassmorphism UI"]
-    }
-
-  ];
+  {
+    id: 1,
+    title: "LearnSphere",
+    description:
+      "A full-stack Learning Management System (LMS) built with the MERN stack featuring JWT authentication, OTP email verification, role-based dashboards, course management, Razorpay payment integration, Cloudinary media storage, and course progress tracking.",
+    image: "https://github.com/kaifcs/LearnSphere/blob/main/screenshots/home1.png?raw=true",
+    github: "https://github.com/kaifcs/LearnSphere",
+    demo: "https://learn-sphere-lms.vercel.app",
+    tech: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Razorpay",
+    ],
+  },
+  {
+    id: 2,
+    title: "PixelMint AI",
+    description:
+      "An AI-powered SaaS application for automated image background removal with Supabase authentication, Razorpay subscription billing, Cloudinary integration, daily usage quotas, and an interactive image processing dashboard.",
+    image: "https://github.com/kaifcs/PixelMint_AI/blob/main/screenshots/Signup.png?raw=true",
+    github: "https://github.com/kaifcs/PixelMint_AI",
+    demo: "https://pixelmint-ai-frontend.vercel.app",
+    tech: [
+      "React",
+      "TypeScript",
+      "Express.js",
+      "Supabase",
+      "Cloudinary",
+      "Razorpay",
+    ],
+  },
+  {
+    id: 3,
+    title: "E-Commerce Store Analysis",
+    description:
+      "An interactive Power BI dashboard analyzing e-commerce sales, customer behavior, profitability, and business KPIs to deliver actionable insights through data visualization.",
+    image: "https://github.com/kaifcs/E_Commerce_Store_Analysis/raw/main/Screenshots/dashboard.png",
+    github: "https://github.com/kaifcs/E_Commerce_Store_Analysis",
+    demo: null,
+    tech: [
+      "Power BI",
+      "SQL",
+      "Excel",
+      "Data Analysis",
+      "Data Visualization",
+    ],
+  },
+  {
+    id: 4,
+    title: "Task Management System",
+    description:
+      "A full-stack task management application built with the MERN stack featuring CRUD operations, REST APIs, persistent data storage, and a responsive modern user interface.",
+    image: "/React_Task_Management_App_v2.png",
+    github: "https://github.com/kaifcs/MERN-Project-TO_DO_List",
+    demo: null,
+    tech: [
+      "MongoDB",
+      "Express.js",
+      "React",
+      "Node.js",
+      "REST API",
+    ],
+  },
+];
 
   return (
     <section id="projects" className="py-12 lg:py-16 relative bg-transparent">
@@ -152,12 +208,12 @@ const ProjectSection = () => {
           </h2>
 
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            A collection of full-stack applications, tools, and clones showcasing my skills in modern web development.
+            A collection of full-stack applications, AI-powered solutions, and data analytics projects showcasing my expertise in modern software development.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {projectsData.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}

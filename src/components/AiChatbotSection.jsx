@@ -53,8 +53,7 @@ const AiChatbotSection = () => {
           text: data.reply || "I received your message but couldn't generate a response.",
         },
       ]);
-    } catch (err) {
-      console.error("Chat error:", err);
+    } catch {
       setMessages((prev) => [
         ...prev,
         {
@@ -87,7 +86,7 @@ const AiChatbotSection = () => {
             </span>
           </div>
           <p className="text-gray-300 leading-relaxed">
-            I'm Kaif's AI assistant. Ask me anything about his projects, skills, experience, or background!
+            I&apos;m Kaif&apos;s AI assistant. Ask me anything about his projects, skills, experience, or background!
           </p>
         </div>
       );

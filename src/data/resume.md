@@ -1,7 +1,7 @@
 # Kaif Khan
 
 Ghaziabad, Uttar Pradesh, India  
-📧 kaif.khan.28.05.2005@gmail.com  
+📧 kk.kaifkhan05@gmail.com  
 📞 +91-9315158854  
 🔗 GitHub: https://github.com/kaifcs  
 🔗 LinkedIn: https://www.linkedin.com/in/kaif-khan-2805-2005-cs/  
@@ -13,7 +13,7 @@ Ghaziabad, Uttar Pradesh, India
 **KIET Group of Institutions, Delhi-NCR**  
 B.Tech in Computer Science and Engineering  
 2023 – 2027  
-**CGPA:** 8.62 (till Semester IV)
+**CGPA:** 8.62 (till Semester VI)
 
 **Leelawati Public School**  
 Intermediate (CBSE, PCM): **92.0%**  

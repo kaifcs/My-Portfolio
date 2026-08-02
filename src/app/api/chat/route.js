@@ -99,9 +99,7 @@ RULES:
       "Sorry, I couldn't generate a response right now.";
 
     return NextResponse.json({ reply });
-  } catch (error) {
-    console.error("❌ Chat API error:", error);
-
+  } catch {
     return NextResponse.json(
       { error: "AI service unavailable. Please try again later." },
       { status: 500 }
