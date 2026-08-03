@@ -23,34 +23,34 @@ const AboutMeSection = () => {
   };
 
   const stats = [
-    { icon: <FaCode />, value: "1300+", label: "Problems Solved" },
-    { icon: <FaLaptopCode />, value: "2+", label: "Projects Built" },
+    { icon: <FaCode />, value: "1600+", label: "Problems Solved" },
+    { icon: <FaLaptopCode />, value: "4", label: "Featured Projects" },
     { icon: <FaTrophy />, value: "8.62", label: "CGPA" },
   ];
 
   const educationData = [
     {
-      degree: "B.Tech in Computer Science and Engineering",
+      degree: "Bachelor of Technology in Computer Science & Engineering",
       institution: "KIET Group of Institutions (AKTU)",
-      location: "Delhi-NCR",
+      location: "Ghaziabad, Uttar Pradesh",
       duration: "2023 – 2027",
       grade: "CGPA: 8.62",
       icon: <FaGraduationCap className="text-emerald-400 text-2xl" />,
     },
     {
-      degree: "Senior Secondary Education (Class XII)",
+      degree: "Senior Secondary Education (CBSE)",
       institution: "Leelawati Public School",
-      location: "Ghaziabad",
+      location: "Ghaziabad, Uttar Pradesh",
       duration: "2021 – 2022",
-      grade: "Percentage: 92%",
+      grade: "Best 5: 92.0%",
       icon: <FaGraduationCap className="text-blue-400 text-2xl" />,
     },
     {
-      degree: "Secondary Education (Class X)",
+      degree: "Secondary Education (CBSE)",
       institution: "Leelawati Public School",
-      location: "Ghaziabad",
+      location: "Ghaziabad, Uttar Pradesh",
       duration: "2019 – 2020",
-      grade: "Percentage: 80.8%",
+      grade: "Best 5: 80.8%",
       icon: <FaGraduationCap className="text-cyan-400 text-2xl" />,
     },
   ];
@@ -63,7 +63,7 @@ const AboutMeSection = () => {
       <div className="absolute w-[600px] h-[600px] bg-blue-400/10 blur-[200px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       <motion.div
-        className="relative z-20 max-w-6xl w-full"
+        className="relative z-20 max-w-7xl w-full"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -84,7 +84,7 @@ const AboutMeSection = () => {
           className="text-center text-zinc-400 mb-10 max-w-2xl mx-auto"
           variants={itemVariants}
         >
-          Passionate about solving problems and building impactful solutions
+          Computer Science student passionate about problem solving, full-stack development, and building scalable software.
         </motion.p>
 
         {/* Stats */}
@@ -135,28 +135,29 @@ const AboutMeSection = () => {
                 <span className="text-emerald-400 font-semibold">
                   Data Structures & Algorithms
                 </span>{" "}
-                and hands-on experience in full-stack web development.
+                and hands-on experience building full-stack web applications using the MERN Stack.
               </p>
 
               <p className="text-zinc-300 leading-relaxed mb-4">
                 Solved{" "}
-                <span className="text-emerald-400 font-semibold">1300+</span>{" "}
-                problems across coding platforms, strengthening problem-solving,
-                logical thinking, and code efficiency.
+                <span className="text-emerald-400 font-semibold">1600+</span>{" "}
+                DSA problems across LeetCode, CodeChef, Codeforces,
+                GeeksforGeeks, and other competitive programming
+                platforms, strengthening problem-solving,
+                algorithmic thinking, and code efficiency.
               </p>
-
               <p className="text-zinc-300 leading-relaxed">
-                A continuous learner actively seeking opportunities to grow as a{" "}
+                Currently exploring scalable backend systems, cloud technologies, and AI-powered applications while preparing for{" "}
                 <span className="text-emerald-400 font-semibold">
-                  software engineer
-                </span>
-                .
+                  software engineering
+                </span>{" "}
+                 roles.
               </p>
             </div>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mt-6">
-              {["Problem Solver", "Full-Stack Dev", "Quick Learner"].map(
+              {["Problem Solver", "Quick Learner", "Growth Mindset"].map(
                 (skill, index) => (
                   <span key={index} className="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-emerald-400 text-sm">
                     {skill}

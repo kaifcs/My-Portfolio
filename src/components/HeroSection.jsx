@@ -42,13 +42,13 @@ const HeroSection = () => {
             <TypeAnimation
               sequence={[
                 "Kaif Khan |",
-                1000,
+                1200,
                 "Aspiring Software Engineer |",
-                1000,
+                1200,
                 "Competitive Programmer |",
-                1000,
-                "Web Developer |",
-                1000,
+                1200,
+                "Full-Stack Developer |",
+                1200,
               ]}
               wrapper="span"
               speed={50}
@@ -72,7 +72,7 @@ const HeroSection = () => {
         <div className="flex flex-wrap gap-3 justify-center sm:justify-start mb-6">
           <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-2 backdrop-blur-sm">
             <span className="text-emerald-400 font-semibold text-sm">
-              1300+ Problems Solved
+              1600+ Problems Solved
             </span>
           </div>
 
@@ -106,7 +106,7 @@ const HeroSection = () => {
               className="w-full sm:w-auto rounded-full border border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 hover:border-zinc-600 hover:scale-105 transition-all duration-300 shadow-lg"
               aria-label="Download Kaif Khan resume"
             >
-              <span className="flex items-center justify-center gap-2 px-7 py-3 text-white">
+              <span className="flex items-center justify-center gap-2 px-8 py-4 text-white">
                 <HiDownload className="text-xl" />
                 <span>Download Resume</span>
               </span>

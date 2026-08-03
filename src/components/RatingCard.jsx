@@ -28,7 +28,7 @@ const RatingCard = ({
   const chartData = normalizeData(data);
 
   return (
-    <Link href={link} target="_blank" className="block group">
+    <Link href={link} target="_blank" rel="noopener noreferrer" className="block group">
       <div className="relative overflow-hidden rounded-3xl border border-gray-800 bg-gradient-to-br from-gray-950 to-gray-900 p-6 transition hover:border-gray-700">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">

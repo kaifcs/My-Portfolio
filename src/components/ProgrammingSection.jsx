@@ -12,7 +12,10 @@ const ratingHistory = {
   leetcode: [{rating: 1548}, {rating: 1652}, {rating: 1677}, {rating: 1742}, 
                {rating: 1703}, {rating: 1749}, {rating: 1791}, {rating: 1784}, 
                {rating: 1795}, {rating: 1784}, {rating: 1820}, {rating: 1794}, 
-               {rating: 1791}, {rating: 1812}, {rating: 1859}, {rating: 1905}
+               {rating: 1791}, {rating: 1812}, {rating: 1859}, {rating: 1905},
+               {rating: 1896}, {rating: 1899}, {rating: 1930}, {rating: 1913},
+               {rating: 1913}, {rating: 1906}, {rating: 1900}, {rating: 1903},
+               {rating: 1903}
             ],
   codechef: [{rating: 957}, {rating: 1180}, {rating: 1341}, {rating: 1410}, 
                {rating: 1392}, {rating: 1395}, {rating: 1446}, {rating: 1430}, 
@@ -92,9 +95,9 @@ const ProgrammingSection = () => {
   }
 
   // Calculate data according to requirements
-  const totalProblems = (stats.totalProblems ?? 1100) + 250;
+  const totalProblems = stats.totalProblems ?? 1100;
   const activeDays =
-    stats.dailyStreak && stats.dailyStreak > 0 ? stats.dailyStreak : 440;
+    stats.dailyStreak && stats.dailyStreak > 0 ? stats.dailyStreak : 620;
   const totalContests =
     stats.totalContests ??
     (stats.platforms?.leetcode?.contests ?? 0) +
@@ -124,7 +127,7 @@ const ProgrammingSection = () => {
   ];
 
   return (
-    <section id="competitive-programming" className="py-16 relative bg-transparent overflow-hidden">
+    <section id="problem-solving" className="py-16 relative bg-transparent overflow-hidden">
       
       {/* ========== PREMIUM BACKGROUND ARCHITECTURE ========== */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-950/10 via-transparent to-transparent pointer-events-none" />
@@ -134,8 +137,8 @@ const ProgrammingSection = () => {
       <div className="absolute w-[800px] h-[800px] bg-gradient-to-br from-emerald-500/8 via-cyan-500/5 to-transparent blur-[140px] rounded-full -top-64 -left-64 animate-pulse pointer-events-none" />
       <div className="absolute w-[900px] h-[900px] bg-gradient-to-tl from-blue-500/8 via-purple-500/5 to-transparent blur-[160px] rounded-full -bottom-64 -right-64 animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
       
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        
+      <div className="container mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
+
         {/* ========== PREMIUM HEADER ========== */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -153,7 +156,7 @@ const ProgrammingSection = () => {
           </div>
 
           {/* Title */}
-          <h2 className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-white tracking-tight leading-[1.1]">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight leading-[1.1]">
             Competitive{" "}
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400">
@@ -324,7 +327,7 @@ const ProgrammingSection = () => {
                 Platform Presence
               </span>
             </div>
-            <h3 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
+            <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
               Coding{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
                 Profiles
@@ -391,6 +394,7 @@ const ProgrammingSection = () => {
           <Link
             href="https://codolio.com/profile/kaif2828"
             target="_blank"
+            rel="noopener noreferrer"
             className="group relative"
           >
             {/* Outer Glow Effect */}
@@ -582,7 +586,7 @@ const ContestBreakdownCard = ({ totalContests, breakdown }) => (
 );
 
 const CodingProfileCard = ({ name, logo, link, accentColor, borderColor, hoverGlow }) => (
-  <Link href={link} target="_blank" className="group block">
+  <Link href={link} target="_blank" rel="noopener noreferrer" className="group block">
     <div className={`relative overflow-hidden bg-gradient-to-br ${accentColor} backdrop-blur-xl border ${borderColor} rounded-2xl p-6 lg:p-7 transition-all duration-500 hover:scale-[1.05] ${hoverGlow} hover:border-opacity-60 shadow-lg`}>
       
       {/* Hover Glow Overlay */}

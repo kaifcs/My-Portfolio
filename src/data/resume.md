@@ -10,15 +10,15 @@ Ghaziabad, Uttar Pradesh, India
 
 ## Education
 
-**KIET Group of Institutions, Delhi-NCR**  
+**KIET Deemed to be University, Delhi-NCR**  
 B.Tech in Computer Science and Engineering  
 2023 – 2027  
 **CGPA:** 8.62 (till Semester VI)
 
 **Leelawati Public School**  
-Intermediate (CBSE, PCM): **92.0%**  
-High School (CBSE): **80.8%**  
-2020 – 2022  
+Senior Secondary Education (CBSE, PCM) — **Best 5: 92.0%**  
+Secondary Education (CBSE) — **Best 5: 80.8%**  
+2020 – 2022
 
 ---
 
@@ -83,7 +83,7 @@ Node.js, Express.js, React.js, REST APIs, MySQL, MongoDB, Git, GitHub, Postman
 - **ICPC Amritapuri Regional Preliminary:** AIR **607**, **3rd in College** — Nov 2025  
 - **Meta Hacker Cup 2025:** Reached **Round 2** (Rank **1704 / 5,972**) — Nov 2025  
 - **CodeChef 3★ (Max 1684)** | **Codeforces Pupil (Max 1344)**  
-- **LeetCode:** 350+ problems solved (Max **1859**, Knight)  
+- **LeetCode:** 350+ problems solved (Max **1930**, Knight)  
 - **GeeksforGeeks:** 3★ (Max **1725**)  
 
 ---
