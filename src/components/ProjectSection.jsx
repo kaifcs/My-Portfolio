@@ -11,7 +11,7 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative bg-zinc-950/40 backdrop-blur-xl border border-zinc-800/50 rounded-2xl overflow-hidden hover:border-zinc-700/60 transition-all duration-500"
+      className="group relative h-full flex flex-col bg-zinc-950/40 backdrop-blur-xl border border-zinc-800/50 rounded-2xl overflow-hidden hover:border-zinc-700/60 transition-all duration-500"
     >
       {/* Project Image */}
       <div className="relative h-56 md:h-64 w-full overflow-hidden bg-zinc-900/50">
@@ -54,7 +54,7 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       {/* Project Info */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-cyan-400 transition-all duration-300">
           {project.title}
         </h3>
@@ -78,7 +78,7 @@ const ProjectCard = ({ project, index }) => {
         )}
 
         {/* Footer with Links */}
-        <div className="flex items-center gap-3 pt-4 border-t border-zinc-800/50">
+        <div className="flex items-center gap-3 pt-4 mt-auto border-t border-zinc-800/50">
           {project.github && (
             <Link
               href={project.github}
@@ -182,9 +182,9 @@ const ProjectSection = () => {
 ];
 
   return (
-    <section id="projects" className="py-12 lg:py-16 relative bg-transparent">
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        
+    <section id="projects" className="py-12 lg:py-16 relative bg-transparent overflow-hidden">
+      <div className="container mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

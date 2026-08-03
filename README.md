@@ -1,7 +1,8 @@
 # 🌐 Portfolio Website – Next.js
 
-A modern, responsive **personal portfolio website** built using **Next.js (App Router)**.  
-This portfolio showcases my **projects, technical skills, achievements, and contact information** with a clean UI, smooth navigation, and optimized performance.
+A modern, responsive **personal portfolio website** built using **Next.js (App Router)**.
+
+This portfolio showcases my **projects, technical skills, achievements, and contact information** through a clean UI, smooth navigation, and optimized performance.
 
 ---
 
@@ -11,47 +12,47 @@ This portfolio showcases my **projects, technical skills, achievements, and cont
 - **React**
 - **Tailwind CSS**
 - **JavaScript (ES6+)**
-- **Resend API** – Contact form email handling
-- **Vercel** – Deployment & hosting
+- **Framer Motion** – UI animations
+- **Formspree** – Contact form handling
+- **Vercel** – Deployment & Hosting
 
 ---
 
 ## ✨ Features
 
-- 📱 Fully responsive design for all devices  
-- 🧭 Smooth section-based navigation  
-- 🧩 Modular & reusable React components  
-- ⚡ Optimized performance with Next.js  
-- 🔍 SEO-friendly structure  
-- 📬 Functional contact form with API route  
-- 🎨 Modern UI with animations & gradients  
+- 📱 Fully responsive design
+- 🧭 Smooth section-based navigation
+- 🧩 Modular & reusable React components
+- ⚡ Optimized performance with Next.js
+- 🔍 SEO-friendly architecture
+- 📬 Functional contact form
+- 🎨 Modern glassmorphism-inspired UI with animations
+- 🌙 Consistent dark theme
 
 ---
 
 ## 🖼️ Live Demo
 
-> _(Add your deployed Vercel link here after deployment)_
+👉 **[Visit Portfolio](https://kaifkhan-portfolio.vercel.app/)**
 
-
+---
 
 ## 📁 Project Structure
 
-```bash
+```text
 portfolio-website/
 │
-├── node_modules/
-│
 ├── public/
-│   ├── github-icon.svg
-│   ├── linkedin-icon.svg
-│   └── other-static-assets
+│   ├── icons/
+│   ├── images/
+│   ├── resume/
+│   └── ...
 │
 ├── src/
-│   ├── api/
-│   │   └── send/
-│   │       └── route.js
-│   │
 │   ├── app/
+│   │   ├── api/
+│   │   │   └── stats/
+│   │   │       └── route.js
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.js
@@ -59,7 +60,6 @@ portfolio-website/
 │   │
 │   ├── components/
 │   │   ├── AboutMeSection.jsx
-│   │   ├── AiChatbotSection.jsx
 │   │   ├── EmailSection.jsx
 │   │   ├── Footer.jsx
 │   │   ├── HeroSection.jsx
@@ -67,12 +67,20 @@ portfolio-website/
 │   │   ├── Navbar.jsx
 │   │   ├── ProgrammingSection.jsx
 │   │   ├── ProjectSection.jsx
-│   │   ├── RatingCard.jsx
 │   │   ├── RecognitionSection.jsx
-│   │   └── Skills.jsx
+│   │   ├── Skills.jsx
+│   │   └── ...
+│   │
+│   ├── hooks/
+│   ├── utils/
+│   └── assets/
 │
-├── .env
 ├── .gitignore
+├── eslint.config.mjs
+├── jsconfig.json
+├── next.config.mjs
 ├── package.json
 ├── package-lock.json
+├── postcss.config.mjs
 └── README.md
+```

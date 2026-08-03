@@ -15,7 +15,7 @@ const Skills = () => {
   const skillCategories = {
     languages: {
       title: "LANGUAGES",
-      subtitle: "4 MODULES DETECTED",
+      subtitle: "4 TECHNOLOGIES",
       icon: Code2,
       color: "blue",
       skills: [
@@ -27,17 +27,17 @@ const Skills = () => {
     },
     backend: {
       title: "BACKEND",
-      subtitle: "2 MODULES DETECTED",
+      subtitle: "2 TECHNOLOGIES",
       icon: Server,
       color: "emerald",
       skills: [
-        { name: "Node.js", level: 90 },
-        { name: "Express.js", level: 88 },
+        { name: "Node.js", level: 85 },
+        { name: "Express.js", level: 85 },
       ],
     },
     frontend: {
       title: "FRONTEND",
-      subtitle: "4 MODULES DETECTED",
+      subtitle: "4 TECHNOLOGIES",
       icon: Layout,
       color: "cyan",
       skills: [
@@ -49,36 +49,38 @@ const Skills = () => {
     },
     databases: {
       title: "DATABASES",
-      subtitle: "4 MODULES DETECTED",
+      subtitle: "4 TECHNOLOGIES",
       icon: Database,
       color: "purple",
       skills: [
+        { name: "MySQL", level: 90 },
+        { name: "MongoDB", level: 85 },
+        { name: "Oracle SQL", level: 80 },
         { name: "PostgreSQL", level: 80 },
-        { name: "MongoDB", level: 90 },
-        { name: "MySQL", level: 75 },
-        { name: "Oracle SQL", level: 75 },
       ],
     },
     tools: {
-      title: "TOOLS & DEVOPS",
-      subtitle: "2 MODULES DETECTED",
+      title: "TOOLS",
+      subtitle: "4 TECHNOLOGIES",
       icon: Wrench,
       color: "amber",
       skills: [
         { name: "Git", level: 90 },
-        { name: "AWS", level: 80 },
+        { name: "GitHub", level: 90 },
+        { name: "Postman", level: 85 },
+        { name: "Vercel", level: 85 },
       ],
     },
     security: {
       title: "SECURITY",
-      subtitle: "4 MODULES DETECTED",
+      subtitle: "4 TECHNOLOGIES",
       icon: Shield,
       color: "rose",
       skills: [
-        { name: "JWT", level: 99 },
-        { name: "Refresh Token", level: 80 },
-        { name: "Encryption", level: 90 },
-        { name: "API Security", level: 85 },
+        { name: "JWT Authentication", level: 90 },
+        { name: "Role-Based Access Control", level: 85 },
+        { name: "Input Validation", level: 85 },
+        { name: "REST API Security", level: 85 },
       ],
     },
   };
@@ -88,7 +90,7 @@ const Skills = () => {
     { id: "backend", label: "Backend", icon: Server },
     { id: "frontend", label: "Frontend", icon: Code2 },
     { id: "databases", label: "Databases", icon: Database },
-    { id: "tools", label: "Tools & DevOps", icon: Wrench },
+    { id: "tools", label: "Tools", icon: Wrench },
     { id: "security", label: "Security", icon: Shield },
   ];
 
@@ -179,7 +181,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-24 lg:py-32 relative bg-transparent">
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto max-w-7xl px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/50 border border-zinc-700 backdrop-blur-sm mb-6">
@@ -331,7 +333,12 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Problem Solving Section */}
+        {/* 
+        ======================================================
+        PROBLEM SOLVING SECTION (TEMPORARILY DISABLED)
+        ======================================================
+
+        {/* Problem Solving Section * /}
         <div className="mt-24">
           <div className="flex flex-col items-center mb-14">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
@@ -372,7 +379,7 @@ const Skills = () => {
             </h3>
           </div>
 
-          {/* DSA Topics Grid */}
+          {/* DSA Topics Grid * /}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { name: "Arrays & Hashing", solved: 1148, total: 1350, mastery: 85, color: "rgb(16, 185, 129)" },
@@ -422,6 +429,7 @@ const Skills = () => {
             ))}
           </div>
         </div>
+        */}
       </div>
     </section>
   );

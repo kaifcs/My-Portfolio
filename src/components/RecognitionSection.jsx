@@ -12,7 +12,7 @@ const RecognitionSection = () => {
       iconBorder: "border-yellow-500/20",
       glow: "group-hover:shadow-yellow-500/40",
       title: "LeetCode Knight",
-      description: "Achieved Knight badge with 1850+ rating",
+      description: "Achieved Knight badge with 1900+ rating",
     },
     {
       icon: <Star className="w-8 h-8 text-emerald-400" />,
@@ -28,30 +28,30 @@ const RecognitionSection = () => {
       iconBorder: "border-blue-500/20",
       glow: "group-hover:shadow-blue-500/40",
       title: "Pupil on Codeforces",
-      description: "Achieved Pupil rank with 1300+ rating",
+      description: "Achieved Pupil rank with 1600+ rating",
     },
     {
       icon: <Flame className="w-8 h-8 text-red-400" />,
       iconBg: "from-red-500/10 to-pink-500/10",
       iconBorder: "border-red-500/20",
       glow: "group-hover:shadow-red-500/40",
-      title: "440+ Days Streak",
-      description: "Maintained 440+ day coding streak",
+      title: "620+ Days Streak",
+      description: "Maintained 620+ day coding streak",
     },
     {
       icon: <Code className="w-8 h-8 text-amber-400" />,
       iconBg: "from-amber-500/10 to-yellow-500/10",
       iconBorder: "border-amber-500/20",
       glow: "group-hover:shadow-amber-500/40",
-      title: "1300+ Problems",
-      description: "Solved 1300+ DSA problems across platforms",
+      title: "1600+ Problems",
+      description: "Solved 1600+ DSA problems across platforms",
     },
     {
       icon: <Globe className="w-8 h-8 text-teal-400" />,
       iconBg: "from-teal-500/10 to-emerald-500/10",
       iconBorder: "border-teal-500/20",
       glow: "group-hover:shadow-teal-500/40",
-      title: "Top 5.59% Globally",
+      title: "Top 4.52% Globally",
       description: "Ranked in top 3% on LeetCode contests",
     },
   ];
@@ -101,7 +101,7 @@ const RecognitionSection = () => {
   ];
 
   return (
-    <section className="py-4 px-4 relative">
+    <section id="recognition" className="py-16 lg:py-20 px-4 relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-950/5 to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
@@ -139,7 +139,7 @@ const RecognitionSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {achievements.map((achievement, index) => (
-              <div key={index} className="group bg-[#020617]/90 border border-white/10 rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300 hover:scale-105 backdrop-blur-lg">
+              <div key={index} className="group bg-zinc-950/40 border border-zinc-800/50 backdrop-blur-xl rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300 hover:scale-105">
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${achievement.iconBg} border ${achievement.iconBorder} flex items-center justify-center mb-6 transition-all duration-300 shadow-lg ${achievement.glow} group-hover:scale-110`}>
                   {achievement.icon}
                 </div>
@@ -166,7 +166,7 @@ const RecognitionSection = () => {
 
           <div className="grid md:grid-cols-2 gap-6">
             {certifications.map((cert, index) => (
-              <div key={index} className="group bg-[#020617]/90 border border-white/10 rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300 hover:scale-105 backdrop-blur-lg">
+              <div key={index} className="group bg-zinc-950/40 border border-zinc-800/50 backdrop-blur-xl rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300 hover:scale-105">
                 <div className="flex items-start gap-5">
                   
                   {/* ICON */}
@@ -202,7 +202,7 @@ const RecognitionSection = () => {
                         {cert.year}
                       </div>
 
-                      <Link href={cert.verifyLink} target="_blank" className="flex items-center gap-1.5 text-[10px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors">
+                      <Link href={cert.verifyLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-[10px] uppercase tracking-widest font-bold text-zinc-400 hover:text-white transition-colors">
                         Verify
                         <ExternalLink className="w-3 h-3" />
                       </Link>

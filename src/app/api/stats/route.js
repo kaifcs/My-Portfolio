@@ -1,7 +1,7 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 const LC = "Dynamite05";
 const CF = "kaif2828";
@@ -17,6 +17,7 @@ export async function GET() {
       codechef: { solved: 566, rating: 0, contests: 0, stars: 0, maxRating: 0 },
     };
 
+    const leetcodeTask = async () => {
     /* ================= LEETCODE ================= */
     try {
       const res = await axios.post("https://leetcode.com/graphql", {
@@ -60,7 +61,9 @@ export async function GET() {
         maxRating: parseNum(contest?.rating), // LC gives only current
       };
     } catch {}
+    };
 
+    const codeforcesTask = async () => {
     /* ================= CODEFORCES ================= */
     try {
       const [info, subs, ratingRes] = await Promise.all([
@@ -87,6 +90,7 @@ export async function GET() {
         maxRating: Math.max(...ratings, 0),
       };
     } catch {}
+    };
 
     const getCodechefStars = (rating) => {
       if (rating >= 2500) return "★★★★★";
@@ -98,6 +102,7 @@ export async function GET() {
       return "★";
     };
 
+    const codechefTask = async () => {
     /* ================= CODECHEF (REAL-TIME RATING + STARS) ================= */
     try {
       const res = await axios.get(`https://www.codechef.com/api/ratings/${CC}`);
@@ -125,6 +130,9 @@ export async function GET() {
         maxRating: 1684,
       };
     }
+    };
+
+    await Promise.all([leetcodeTask(), codeforcesTask(), codechefTask()]);
 
     /* ================= TOTALS ================= */
 
